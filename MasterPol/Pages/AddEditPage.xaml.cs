@@ -23,6 +23,63 @@ namespace MasterPol.Pages
         public AddEditPage()
         {
             InitializeComponent();
+            Init();
+        }
+        public void Init()
+        {
+            IdLabel.Visibility = Visibility.Hidden;
+            IdTextBox.Visibility = Visibility.Hidden;
+            TypeComboBox.ItemsSource = Data.MasterFloorEntities.GetContext().TypeOfPartners.ToList();
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.ListViewPage());
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                StringBuilder errors = new StringBuilder();
+
+                if (string.IsNullOrEmpty(NameTextBox.Text))
+                {
+                    errors.AppendLine("Заполните наименование!");
+                }
+                if (TypeComboBox.SelectedItem == null)
+                {
+                    errors.AppendLine("Выберите тип партнера!");
+                }
+                if (string.IsNullOrEmpty(RatingTextBox.Text))
+                {
+                    errors.AppendLine("Заполните рейтинг!");
+                }
+                if (string.IsNullOrEmpty(AdressTextBox.Text))
+                {
+                    errors.AppendLine("Заполните адрес!");
+                }
+                if (string.IsNullOrEmpty(FIOTextBox.Text))
+                {
+                    errors.AppendLine("Заполните ФИО!");
+                }
+                if (string.IsNullOrEmpty(PhoneTextBox.Text))
+                {
+                    errors.AppendLine("Заполните номер телефона!");
+                }
+                if (string.IsNullOrEmpty(EmailTextBox.Text))
+                {
+                    errors.AppendLine("Заполните Email!");
+                }
+
+                if (errors.Length > 0)
+                {
+                    MessageBox.Show(errors.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

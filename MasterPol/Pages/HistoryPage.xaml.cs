@@ -20,9 +20,31 @@ namespace MasterPol.Pages
     /// </summary>
     public partial class HistoryPage : Page
     {
-        public HistoryPage()
+        private readonly Data.PartnersImport _selectedPartner;
+
+        public HistoryPage(Data.PartnersImport selectedPartner)
         {
+            _selectedPartner = selectedPartner;
             InitializeComponent();
+            LoadHistory();
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.ListViewPage());
+        }
+        private void LoadHistory()
+        {
+            var history = Data.MasterFloorEntities.GetContext().PartnerProductsImport
+                .Where(p => p.IdPartnerName == _selectedPartner.Id)
+                .Select(p => new
+                {
+                    Production = p.Production,
+                    CountOfProduction = p.CountOfProduction,
+                    DateOfSale = p.DateOfSale
+                })
+                .ToList();
+
+            HistoryDataGrid.ItemsSource = history;
         }
     }
 }

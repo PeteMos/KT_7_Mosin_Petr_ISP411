@@ -9,6 +9,49 @@
       Title="ИС Мастер Пол - список партнёров">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="MasterListView" 
+                  VerticalAlignment="Center" 
+                  HorizontalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="170"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                            <TextBlock>
+                                <Run Text="{Binding Partner.TypeOfPartners.TypeOfPartner}"/>
+                                <Run Text="|"/>
+                                <Run Text="{Binding Partner.PartnerName.PartnerName1}"/>
+                            </TextBlock>
+                            <TextBlock Text="{Binding Partner.Directors.FIO, StringFormat={}{0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.PhoneOfPartner, StringFormat={}{0}}"></TextBlock>
+                            <TextBlock Text="{Binding Partner.Reiting, StringFormat={}Рейтинг: {0}}"></TextBlock>
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Discount, StringFormat={}{0}%}"></TextBlock>
+
+                        <Button x:Name="EditButton" Grid.Column="2" 
+                                Content="Редактировать"
+                                Click="EditButton_Click"></Button>
+                        <Button x:Name="HistoryButton" Grid.Column="3" 
+                                Content="История реализации" Margin="10"
+                                Click="HistoryButton_Click"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="AddButton" Grid.Row="1" 
+                Content="Добавить"
+                Click="AddButton_Click"></Button>
     </Grid>
 </Page>
