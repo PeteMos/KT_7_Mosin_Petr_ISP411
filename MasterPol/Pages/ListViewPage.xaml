@@ -21,8 +21,8 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="350"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="450"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="170"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -38,7 +38,8 @@
                             <TextBlock Text="{Binding Partner.Reiting, StringFormat={}Рейтинг: {0}}"></TextBlock>
                         </StackPanel>
 
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Discount, StringFormat={}{0}%}"></TextBlock>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Top" Margin="4"
+                                   Text="{Binding Discount, StringFormat={}{0}%}"></TextBlock>
 
                         <Button x:Name="EditButton" Grid.Column="2" 
                                 Content="Редактировать"

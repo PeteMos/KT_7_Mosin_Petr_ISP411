@@ -22,6 +22,9 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160"></ColumnDefinition>
@@ -29,7 +32,7 @@
                 <ColumnDefinition Width="160"></ColumnDefinition>
                 <ColumnDefinition Width="300"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <Label x:Name="IdLabel" 
                    Content="Id:" 
                    Grid.Row="0" 
@@ -37,10 +40,16 @@
             <Label Content="Наименование:" Grid.Row="1" Grid.Column="0"></Label>
             <Label Content="Тип партнера" Grid.Row="2" Grid.Column="0"></Label>
             <Label Content="Рейтинг:" Grid.Row="3" Grid.Column="0"></Label>
-            <Label Content="Адрес:" Grid.Row="0" Grid.Column="2"></Label>
-            <Label Content="ФИО директора:" Grid.Row="1" Grid.Column="2"></Label>
-            <Label Content="Телефон:" Grid.Row="2" Grid.Column="2"></Label>
-            <Label Content="Email:" Grid.Row="3" Grid.Column="2"></Label>
+            <Label Content="ФИО директора:" Grid.Row="4" Grid.Column="0"></Label>
+            <Label Content="Телефон:" Grid.Row="5" Grid.Column="0"></Label>
+            <Label Content="Email:" Grid.Row="6" Grid.Column="0"></Label>
+            <Label Content="Адрес" Grid.Row="0" Grid.Column="3"
+                   HorizontalAlignment="Center" FontWeight="Bold"></Label>
+            <Label Content="Индекс:" Grid.Row="1" Grid.Column="2"></Label>
+            <Label Content="Регион:" Grid.Row="2" Grid.Column="2"></Label>
+            <Label Content="Город:" Grid.Row="3" Grid.Column="2"></Label>
+            <Label Content="Улица:" Grid.Row="4" Grid.Column="2"></Label>
+            <Label Content="Номер дома:" Grid.Row="5" Grid.Column="2"></Label>
 
             <TextBox x:Name="IdTextBox" 
                      Grid.Row="0"
@@ -53,10 +62,14 @@
                       Grid.Column="1"
                       DisplayMemberPath="TypeOfPartner"></ComboBox>
             <TextBox x:Name="RatingTextBox" Grid.Row="3" Grid.Column="1"></TextBox>
-            <TextBox x:Name="AdressTextBox" Grid.Row="0" Grid.Column="3"></TextBox>
-            <TextBox x:Name="FIOTextBox" Grid.Row="1" Grid.Column="3"></TextBox>
-            <TextBox x:Name="PhoneTextBox" Grid.Row="2" Grid.Column="3"></TextBox>
-            <TextBox x:Name="EmailTextBox" Grid.Row="3" Grid.Column="3"></TextBox>
+            <TextBox x:Name="FIOTextBox" Grid.Row="4" Grid.Column="1"></TextBox>
+            <TextBox x:Name="PhoneTextBox" Grid.Row="5" Grid.Column="1"></TextBox>
+            <TextBox x:Name="EmailTextBox" Grid.Row="6" Grid.Column="1"></TextBox>
+            <TextBox x:Name="IndexTextBox" Grid.Row="1" Grid.Column="3"></TextBox>
+            <TextBox x:Name="RegionTextBox" Grid.Row="2" Grid.Column="3"></TextBox>
+            <TextBox x:Name="CityTextBox" Grid.Row="3" Grid.Column="3"></TextBox>
+            <TextBox x:Name="StreetTextBox" Grid.Row="4" Grid.Column="3"></TextBox>
+            <TextBox x:Name="HouseNumTextBox" Grid.Row="5" Grid.Column="3"></TextBox>
         </Grid>
 
         <Button x:Name="BackButton" Grid.Row="1"
